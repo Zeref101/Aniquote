@@ -236,9 +236,13 @@ nav ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: -4rem;
-  width: 50%;
+  width: 60%;
   height: 60%;
+}
+.quote
+{
+  position: relative;
+  margin-left: 4rem;
 }
 .right-content
 {
@@ -246,11 +250,10 @@ nav ul li {
   flex-direction: column;
   align-items: center;
   margin-right: 5rem;
-  width: 50%;
+  width: 40%;
   height: 60%;
-
-  
 }
+
 .anime-pic
 {
   border-radius: 10px;
