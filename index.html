@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Project</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        
-        <div class="container-1">
-            <div class="left">
-                <h1 data-text="ANIQUOTE ☯">ANIQUOTE ☯</h1>
-            </div>
-            <div class="right">
-                <nav>
-                    <ul>
-                        <li class="list"><a href="#second" class="a1">HOME</a></li>
-                        <li class="list"><a href="#third" class="a2">QUOTE</a></li>
-                        <li class="list"><a href="#" class="a3">unknown</a></li>
-                    </ul>
-                </nav>
-            </div>
+      <div class="container-1">
+        <div class="left">
+          <h1 data-text="ANIQUOTE ☯">ANIQUOTE ☯</h1>
         </div>
+        <div class="right">
+          <nav>
+            <ul>
+              <li class="list"><a href="#second" class="a1">HOME</a></li>
+              <li class="list"><a href="#third" class="a2">QUOTE</a></li>
+              <li class="list"><a href="#" class="a3">unknown</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
     <div class="container-2" id="second">
-        <video src="./2023-05-19_22-06-17_online-video-cutter.com (online-video-cutter.com).mp4" autoplay muted loop id="video"></video>
+      <video
+        src="./2023-05-19_22-06-17_online-video-cutter.com (online-video-cutter.com).mp4"
+        autoplay
+        muted
+        loop
+        id="video"
+      ></video>
     </div>
     <div class="search-container">
-        <form onsubmit="return false;"></form>
-        <input type="text" class="search-input" placeholder="Search the anime by title name or genres">
-        <button class="search-output" onclick="openSearchResults()" >Search</button>
-    </div> 
-    <div class="container-3" id="third">
-        <div class="content">
-            <h2>ANIME</h2>
-            <h2>ANIME</h2>
-        </div>
-        <!-- <h2 class="pre-quote" data-text="Are you ready to embark on a thrilling journey through the vibrant World Of Anime?">Are you ready to embark on a thrilling journey through the vibrant World Of Anime?</h2> -->
+      <form onsubmit="return false;"></form>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search the anime by title name or genres"
+      />
+      <button class="search-output" onclick="openSearchResults()">
+        Search
+      </button>
     </div>
+    <div class="container-3 hidden" id="third">
+      <div class="random-first">
+        <button class="btn">Random Search</button>
+      </div>
+    </div>
+    <div class="after-search">
+        <div class="after-search-button-content">
+            <button class="btn after-search-btn">Random Search</button>
+        </div>
+        <div class="after-search-content">
+            <div class="left-content">
+                <div class="anime-name">lorem</div>
+                <div class="quote">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+                    ad!
+                </div>
+            </div>
+            <div class="right-content">
+                <div ><img src="./anime-collage-1920-x-1080-wallpaper-fwx8xyvh2rd4ju8n.jpg" class="anime-pic" ></div>
+                <div class="char-name"></div>
+            </div>
+        </div>
+    </div>
+
+      <!-- <div class="content">
+            <h2>RANDOM</h2>
+            <h2>RANDOM</h2>
+        </div> -->
 
     <!-- <div class="container">
         <h1 class="text"></h1>
@@ -51,5 +83,5 @@
     </div> -->
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
