@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".container-4");
 const text = document.querySelector(".quote");
 const back = document.querySelector(".back");
 const search_input = document.querySelector(".search-input");
@@ -13,7 +13,6 @@ const container3 = document.querySelector(".container-3");
 const charName = document.querySelector(".char-name");
 
 function fetchAnimeQuoteAndCharacter() {
-  
   const fetchPromise = fetch("https://animechan.vercel.app/api/random");
   container3.classList.add("hidden");
   afterSearch.classList.remove("hidden");
@@ -28,7 +27,7 @@ function fetchAnimeQuoteAndCharacter() {
       animeNAME.textContent = animeTitle;
       animePic.innerHTML = "";
       charName.innerHTML = "";
-      
+
       // Fetching character image and appending the child to container
       fetch(`https://graphql.anilist.co`, {
         method: "POST",
@@ -58,7 +57,7 @@ function fetchAnimeQuoteAndCharacter() {
           const img = document.createElement("img");
           img.src = characterImage;
           img.classList.add("anime-pic");
-          const newElement = `<img src=${characterImage} class = "anime-pic">`
+          const newElement = `<img src=${characterImage} class = "anime-pic">`;
           animePic.insertAdjacentHTML("beforeend", newElement);
           charName.textContent = characterName;
 
@@ -149,7 +148,7 @@ function fetchAnimeQuoteAndCharacter() {
       console.error(error);
     });
 }
-function fetchAnime(search, container) {
+function fetchShows(search, container) {
   fetch(`https://graphql.anilist.co`, {
     method: "POST",
     headers: {
@@ -212,7 +211,6 @@ button.addEventListener("click", fetchAnimeQuoteAndCharacter);
 afterSearchBtn.addEventListener("click", fetchAnimeQuoteAndCharacter);
 
 search_button.addEventListener("click", () => {
-  first.classList.add("container"); //? added
   const searchQuery = search_input.value;
-  fetchAnime(searchQuery);
+  fetchShows(searchQuery, container);
 });

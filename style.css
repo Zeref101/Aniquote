@@ -198,8 +198,8 @@ nav ul li {
 /* ==================AFTER BUTTON CLICK================== */
 .after-search
 {
-  width: 100%;
-  height: 100vh;
+  max-width: 100vh;
+  height: 100%;
   color: #fff;
   font-size: 2.5rem;
 }
@@ -259,6 +259,14 @@ nav ul li {
   border-radius: 10px;
   width: 350px;
   height: auto;
+}
+/* ===============SEARCH RESULT=================== */
+.container-4
+{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 /* .content{
   position: relative;
