@@ -79,7 +79,7 @@ function fetchAnimeQuoteAndCharacter() {
       console.error(error);
     });
 }
-function fetchAnime(animeTitle) {
+function fetchAnime(animeTitle, container5) {
   // ! Fetching anime synopsis and anime background for the more information on this anime feature
   const fetchAnime = fetch(`https://graphql.anilist.co`, {
     method: "POST",
@@ -141,17 +141,53 @@ function fetchAnime(animeTitle) {
       const animeImage = data.data.Media.coverImage.large; // get the image of the anime
       const animeSynopsis = data.data.Media.description; // get the synopsis of the anime
       const animeBackground = data.data.Media.bannerImage; // get the background image of the anime
-      console.log(data.data.Media.startDate);
-      console.log(data.data.Media.endDate);
-      console.log(data.data.Media.status);
-      console.log(data.data.Media.popularity);
-      console.log(data.data.Media.characters);
-      console.log(`Title: ${animeTitle}`);
-      console.log(`Image URL: ${animeImage}`);
-      console.log(`Synopsis: ${animeSynopsis}`);
-      const img = document.createElement("img");
-      img.src = animeBackground;
-      back.appendChild(img);
+
+      // ! BANNER WORK
+      const parentBanner = document.createElement("div");
+      parentBanner.classList.add("banner");
+      const banner = document.createElement("img");
+      banner.src = animeBackground;
+      banner.classList.add("banner-img");
+      parentBanner.appendChild(banner);
+      container5.appendChild(parentBanner);
+
+      // ! SUMMARY AND IMAGE WORK
+      const infoContent = document.createElement("div");
+      infoContent.classList.add("information-image-content");
+
+      // ? ANIME SUMMARY
+      const summary = document.createElement("div");
+      const strong = document.createElement("p");
+      strong.innerHTML = animeSynopsis;
+      strong.classList.add("information-c5");
+      summary.appendChild(strong);
+      
+      // ? ANIME IMAGE
+      const divImg = document.createElement("div");
+      const container5IMG = document.createElement("img");
+      container5IMG.src = animeImage;
+      container5IMG.classList.add("image-c5");
+      divImg.classList.add("search-size")
+      divImg.appendChild(container5IMG);
+
+      // ! ADDING THE IMAGE AND SUMMARY TO infoContent
+      infoContent.appendChild(divImg);
+      infoContent.appendChild(summary);
+
+      // * ADDING infoContent TO CONTAINER
+      container5.appendChild(infoContent);
+
+      // console.log(data.data.Media.startDate);
+      // console.log(data.data.Media.endDate);
+      // console.log(data.data.Media.status);
+      // console.log(data.data.Media.popularity);
+      // console.log(data.data.Media.characters);
+      // console.log(`Title: ${animeTitle}`);
+      // console.log(`Image URL: ${animeImage}`);
+      // console.log(`Synopsis: ${animeSynopsis}`);
+      // const img = document.createElement("img");
+      // img.src = animeBackground;
+      // back.appendChild(img);
 
       // use the title, image, and synopsis to display the information on your website
     })
@@ -215,8 +251,9 @@ function fetchShows(search, container) {
           const FetchAnime = animeElement.innerText;
           contentElements.forEach((elements) => {
             elements.classList.add("hidden");
+            container5.classList.remove("hidden")
           });
-          fetchAnime(FetchAnime);
+          fetchAnime(FetchAnime, container5);
         });
         container.appendChild(animeElement);
       });
