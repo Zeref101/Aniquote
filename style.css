@@ -284,26 +284,34 @@ nav ul li {
 }
 /* ====================================================================================== */
 .container-5 {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   width: 100%;
   height: 100vh;
 }
 .banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
-
+  height: 41.2796697626419vh;
   z-index: 1;
 }
 .banner-img {
-  width: 100%;
+  position: absolute;
+  width: auto;
   border-radius: 10px;
-  height: auto;
+  max-height: 41.2796697626419vh;
   background: linear-gradient(
     180deg,
     rgba(6, 13, 34, 1) 40%,
     rgba(6, 13, 34, 1)
   );
+ 
 }
 .information-image-content {
   width: 100%;
@@ -311,7 +319,6 @@ nav ul li {
   padding-left: 100px;
   padding-right: 100px;
   display: flex;
-  margin: auto;
   align-items: center;
   justify-content: center;
 }
@@ -343,6 +350,29 @@ nav ul li {
 .information-c5 {
   font-size: 1rem;
   color: #fff;
+}
+.container-other-info
+{
+  color: #fff;
+  width: 80%;
+  padding-left: 100px;
+  padding-right: 100px;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container-other-info div
+{
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.other-info-heading
+{
+  color: #3af5fb;
 }
 /* .content{
   position: relative;
