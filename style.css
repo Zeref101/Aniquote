@@ -13,10 +13,6 @@ html{
   display: flex;
   justify-content: space-between;
 }
-.container_child{
-  width: 200px;
-  height: 250px;
-}
 body {
   background-color: #03001c;
 }
@@ -267,13 +263,40 @@ nav ul li {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
+/* SHOWS HORIZONTAL SCROLL PROBLEM FIXED AND SPACING OF SHOW, TITLE FIXED ===================*/
 .container-4-subheader
 {
-  display:flex;
-  flex-direction: column;
-}
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 
+}
+.anime {
+  flex-basis: 14.28%;
+  height: auto;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.show-pic
+{
+  border-radius: 10px;
+  width: 200px;
+  height: auto;
+}
+.show-name
+{
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+}
+/* ====================================================================================== */
 /* .content{
   position: relative;
 }

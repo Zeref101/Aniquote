@@ -11,6 +11,10 @@ const afterSearchBtn = document.querySelector(".after-search-btn");
 const afterSearch = document.querySelector(".after-search");
 const container3 = document.querySelector(".container-3");
 const charName = document.querySelector(".char-name");
+const container4Subheader = document.querySelector(".container-4-subheader");
+
+// ! FETCHING ANIME QUOTE AND CHARACTER NAME
+//* ------------------------------------------------------------------------------------
 
 function fetchAnimeQuoteAndCharacter() {
   const fetchPromise = fetch("https://animechan.vercel.app/api/random");
@@ -28,7 +32,8 @@ function fetchAnimeQuoteAndCharacter() {
       animePic.innerHTML = "";
       charName.innerHTML = "";
 
-      // Fetching character image and appending the child to container
+      // ! Fetching character image and appending the child to container
+      //* ------------------------------------------------------------------------------------
       fetch(`https://graphql.anilist.co`, {
         method: "POST",
         headers: {
@@ -53,7 +58,9 @@ function fetchAnimeQuoteAndCharacter() {
         .then((response) => response.json())
         .then((data) => {
           const characterImage = data.data.Character.image.large;
-          // use the character image URL to display the image on your website
+
+          // ! character image URL to display the image
+
           const img = document.createElement("img");
           img.src = characterImage;
           img.classList.add("anime-pic");
@@ -61,7 +68,7 @@ function fetchAnimeQuoteAndCharacter() {
           animePic.insertAdjacentHTML("beforeend", newElement);
           charName.textContent = characterName;
 
-          // Fetching anime synopsis and anime background for the more information on this anime feature
+          // ! Fetching anime synopsis and anime background for the more information on this anime feature
           const fetchAnime = fetch(`https://graphql.anilist.co`, {
             method: "POST",
             headers: {
@@ -185,7 +192,7 @@ function fetchShows(search, container) {
     .then((response) => response.json())
     .then((data) => {
       const animeList = data.data.Page.media;
-      container.innerHTML = ""; // clear the container before adding new elements
+      container4Subheader.innerHTML = ""; // ? clearing the container before adding new animeElement
       animeList.forEach((anime) => {
         const title =
           anime.title.romaji || anime.title.english || anime.title.native;
@@ -194,14 +201,12 @@ function fetchShows(search, container) {
         // const description = anime.description;
         const animeElement = `
             <div class="anime" style="color: aliceblue;" >
-              <img src="${image}" alt="${title}" class = "container_child">
-              <h2>${title}</h2>
-              <p><strong>Genres:</strong> ${genres}</p>
-  
+              <img src="${image}" alt="${title}" class = "show-pic">
+              <h2 class = "show-name">${title}</h2>
             </div>
           `;
 
-        container.insertAdjacentHTML("beforeend", animeElement);
+        container4Subheader.insertAdjacentHTML("beforeend", animeElement);
       });
     })
     .catch((error) => {
