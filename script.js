@@ -149,6 +149,7 @@ function fetchAnimeQuoteAndCharacter() {
     });
 }
 function fetchShows(search, container) {
+  container.classList.remove("hidden");
   fetch(`https://graphql.anilist.co`, {
     method: "POST",
     headers: {
@@ -212,5 +213,6 @@ afterSearchBtn.addEventListener("click", fetchAnimeQuoteAndCharacter);
 
 search_button.addEventListener("click", () => {
   const searchQuery = search_input.value;
+  container.classList.remove("hidden");
   fetchShows(searchQuery, container);
 });
