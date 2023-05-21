@@ -12,6 +12,9 @@ const afterSearch = document.querySelector(".after-search");
 const container3 = document.querySelector(".container-3");
 const charName = document.querySelector(".char-name");
 const container4Subheader = document.querySelector(".container-4-subheader");
+const container5 = document.querySelector(".container-5");
+const contentElements = document.querySelectorAll("body > *:not(.container-5)");
+const animeElements = container4Subheader.querySelectorAll(".anime");
 
 // ! FETCHING ANIME QUOTE AND CHARACTER NAME
 //* ------------------------------------------------------------------------------------
@@ -165,24 +168,24 @@ function fetchShows(search, container) {
     },
     body: JSON.stringify({
       query: `
-          query ($search: String, $type: MediaType) {
-            Page {
-              media(search: $search, type: $type) {
-                id
-                title {
-                  romaji
-                  english
-                  native
-                }
-                coverImage {
-                  large
-                }
-                genres
-                description
+        query ($search: String, $type: MediaType) {
+          Page {
+            media(search: $search, type: $type) {
+              id
+              title {
+                romaji
+                english
+                native
               }
+              coverImage {
+                large
+              }
+              genres
+              description
             }
           }
-        `,
+        }
+      `,
       variables: {
         search: search,
         type: "ANIME",
@@ -192,27 +195,34 @@ function fetchShows(search, container) {
     .then((response) => response.json())
     .then((data) => {
       const animeList = data.data.Page.media;
-      container4Subheader.innerHTML = ""; // ? clearing the container before adding new animeElement
+      container.innerHTML = ""; // Clear the container before adding new animeElements
       animeList.forEach((anime) => {
         const title =
           anime.title.romaji || anime.title.english || anime.title.native;
         const image = anime.coverImage.large;
         const genres = anime.genres.join(", ");
-        // const description = anime.description;
-        const animeElement = `
-            <div class="anime" style="color: aliceblue;" >
-              <img src="${image}" alt="${title}" class = "show-pic">
-              <h2 class = "show-name">${title}</h2>
-            </div>
-          `;
-
-        container4Subheader.insertAdjacentHTML("beforeend", animeElement);
+        const animeElement = document.createElement("div");
+        animeElement.classList.add("anime");
+        animeElement.style.color = "aliceblue";
+        animeElement.innerHTML = `
+          <img src="${image}" alt="${title}" class="show-pic">
+          <h2 class="show-name">${title}</h2>
+        `;
+        // ? changing from insertAdjacentHTML to create element cause  it doesn't allow for direct event listener attachment
+        // ? to the newly added elements. By using document.createElement to create the anime elements as actual DOM elements
+        animeElement.addEventListener("click", () => {
+          contentElements.forEach((elements)=>{
+            elements.classList.add("hidden");
+          });
+        });
+        container.appendChild(animeElement);
       });
     })
     .catch((error) => {
       console.error(error);
     });
 }
+
 button.addEventListener("click", fetchAnimeQuoteAndCharacter);
 afterSearchBtn.addEventListener("click", fetchAnimeQuoteAndCharacter);
 
@@ -221,3 +231,4 @@ search_button.addEventListener("click", () => {
   container.classList.remove("hidden");
   fetchShows(searchQuery, container);
 });
+

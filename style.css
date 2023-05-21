@@ -1,4 +1,4 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 * {
@@ -7,7 +7,11 @@ html{
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
-.container{
+:root
+{
+  --color-shadow-dark: 6,13,34;
+}
+.container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -27,13 +31,11 @@ body {
   justify-content: space-between;
   z-index: 2;
 }
-h1
-{
+h1 {
   position: relative;
   color: #222;
 }
-h1::before
-{
+h1::before {
   content: attr(data-text);
   position: absolute;
   color: #fff;
@@ -45,15 +47,15 @@ h1::before
   filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
 }
 @keyframes ani {
-  0%,10%,100%
-  {
+  0%,
+  10%,
+  100% {
     width: 0;
   }
-  70%,90%
-  {
+  70%,
+  90% {
     width: 100%;
   }
-  
 }
 nav {
   width: 500px;
@@ -71,7 +73,6 @@ nav ul li {
   border: 2px;
   border-color: #e5680e;
   margin: 20px;
-
 }
 .container-2 {
   width: 100%;
@@ -91,8 +92,8 @@ nav ul li {
   -webkit-filter: blur(3.6px);
 }
 
-.active{
-  background: rgba(255,255,255,0.8);
+.active {
+  background: rgba(255, 255, 255, 0.8);
 }
 .search-input {
   position: absolute;
@@ -124,7 +125,7 @@ nav ul li {
   border: none;
   text-decoration: none;
 }
-a{
+a {
   text-decoration: none;
   color: #fff;
   font-size: 1rem;
@@ -146,30 +147,30 @@ nav ul li {
   width: 110px;
   height: 50px;
 }
-.a1{
+.a1 {
   position: absolute;
   top: 3.8%;
   right: 24.6%;
 }
-.a2{
+.a2 {
   position: absolute;
   top: 3.8%;
   right: 16.6%;
 }
-.a3{
+.a3 {
   position: absolute;
   top: 3.8%;
   right: 8%;
 }
-.search-input:hover{
-  background: rgba(255, 255, 255, 0.8)  
+.search-input:hover {
+  background: rgba(255, 255, 255, 0.8);
 }
 .search-input:focus {
-  background: rgba(255, 255, 255, 0.8)  
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /* ====================================================================== */
-.container-3{
+.container-3 {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -177,35 +178,31 @@ nav ul li {
   justify-content: center;
   align-items: center;
 }
-.btn
-{
+.btn {
   width: 10rem;
   height: 4.5rem;
   border-radius: 25px;
   border: none;
   text-decoration: none;
   letter-spacing: 2px;
-  filter: drop-shadow(0,0,20px, #3af5fb);
+  filter: drop-shadow(0, 0, 20px, #3af5fb);
   cursor: pointer;
 }
-.hidden{
+.hidden {
   display: none !important;
 }
 /* ==================AFTER BUTTON CLICK================== */
-.after-search
-{
+.after-search {
   max-width: 100%;
   height: 100vh;
   color: #fff;
   font-size: 2.5rem;
 }
-.after-search-button-content
-{
-  width: 100% ;
+.after-search-button-content {
+  width: 100%;
   height: 14vh;
 }
-.after-search-btn
-{
+.after-search-btn {
   position: relative;
   top: 2rem;
   left: 2rem;
@@ -215,11 +212,10 @@ nav ul li {
   border: none;
   text-decoration: none;
   letter-spacing: 2px;
-  filter: drop-shadow(0,0,20px, #3af5fb);
+  filter: drop-shadow(0, 0, 20px, #3af5fb);
   cursor: pointer;
 }
-.after-search-content
-{
+.after-search-content {
   width: 100%;
   height: 87vh;
   display: flex;
@@ -227,21 +223,18 @@ nav ul li {
   align-items: center;
 }
 
-.left-content
-{
+.left-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 60%;
   height: 60%;
 }
-.quote
-{
+.quote {
   position: relative;
   margin-left: 4rem;
 }
-.right-content
-{
+.right-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,15 +243,13 @@ nav ul li {
   height: 60%;
 }
 
-.anime-pic
-{
+.anime-pic {
   border-radius: 10px;
   width: 350px;
   height: auto;
 }
 /* ===============SEARCH RESULT=================== */
-.container-4
-{
+.container-4 {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -267,13 +258,11 @@ nav ul li {
   overflow-y: scroll;
 }
 /* SHOWS HORIZONTAL SCROLL PROBLEM FIXED AND SPACING OF SHOW, TITLE FIXED ===================*/
-.container-4-subheader
-{
+.container-4-subheader {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-
 }
 .anime {
   flex-basis: 14.28%;
@@ -284,19 +273,33 @@ nav ul li {
   flex-direction: column;
   align-items: center;
 }
-.show-pic
-{
+.show-pic {
   border-radius: 10px;
   width: 200px;
   height: auto;
 }
-.show-name
-{
+.show-name {
   display: flex;
   flex-wrap: wrap;
   width: 200px;
 }
 /* ====================================================================================== */
+.container-5 {
+  width: 100%;
+  height: 100vh;
+}
+.banner {
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+.banner-img
+{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,rgba(var(--color-shadow-dark),0) 40%,rgba(var(--color-shadow-dark),.6));
+}
 /* .content{
   position: relative;
 }
