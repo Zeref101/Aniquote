@@ -70,89 +70,90 @@ function fetchAnimeQuoteAndCharacter() {
           const newElement = `<img src=${characterImage} class = "anime-pic">`;
           animePic.insertAdjacentHTML("beforeend", newElement);
           charName.textContent = characterName;
-
-          // ! Fetching anime synopsis and anime background for the more information on this anime feature
-          const fetchAnime = fetch(`https://graphql.anilist.co`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              query: `
-                query ($search: String) {
-                  Media(search: $search, type: ANIME) {
-                    title {
-                      romaji
-                    }
-                    description
-                    coverImage {
-                      large
-                    }
-                    bannerImage
-                    startDate{
-                      year
-                      month
-                      day
-                    }
-                    endDate{
-                      year
-                      month
-                      day
-                    }
-                    status
-                    popularity
-                    episodes
-                    duration
-                    characters {
-                      edges {
-                        node {
-                          id
-                          name {
-                            full
-                          }
-                          image {
-                            large
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+function fetchAnime(animeTitle) {
+  // ! Fetching anime synopsis and anime background for the more information on this anime feature
+  const fetchAnime = fetch(`https://graphql.anilist.co`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+                  query ($search: String) {
+                    Media(search: $search, type: ANIME) {
+                      title {
+                        romaji
+                      }
+                      description
+                      coverImage {
+                        large
+                      }
+                      bannerImage
+                      startDate{
+                        year
+                        month
+                        day
+                      }
+                      endDate{
+                        year
+                        month
+                        day
+                      }
+                      status
+                      popularity
+                      episodes
+                      duration
+                      characters {
+                        edges {
+                          node {
+                            id
+                            name {
+                              full
+                            }
+                            image {
+                              large
+                            }
                           }
                         }
                       }
                     }
                   }
-                }
-              `,
-              variables: {
-                search: animeTitle,
-              },
-            }),
-          });
-          fetchAnime
-            .then((response) => response.json())
-            .then((data) => {
-              const animeTitle = data.data.Media.title.romaji; // get the title of the anime
-              const animeImage = data.data.Media.coverImage.large; // get the image of the anime
-              const animeSynopsis = data.data.Media.description; // get the synopsis of the anime
-              const animeBackground = data.data.Media.bannerImage; // get the background image of the anime
-              console.log(data.data.Media.startDate);
-              console.log(data.data.Media.endDate);
-              console.log(data.data.Media.status);
-              console.log(data.data.Media.popularity);
-              console.log(data.data.Media.characters);
-              console.log(`Title: ${animeTitle}`);
-              console.log(`Image URL: ${animeImage}`);
-              console.log(`Synopsis: ${animeSynopsis}`);
-              const img = document.createElement("img");
-              img.src = animeBackground;
-              back.appendChild(img);
+                `,
+      variables: {
+        search: animeTitle,
+      },
+    }),
+  });
+  fetchAnime
+    .then((response) => response.json())
+    .then((data) => {
+      const animeTitle = data.data.Media.title.romaji; // get the title of the anime
+      const animeImage = data.data.Media.coverImage.large; // get the image of the anime
+      const animeSynopsis = data.data.Media.description; // get the synopsis of the anime
+      const animeBackground = data.data.Media.bannerImage; // get the background image of the anime
+      console.log(data.data.Media.startDate);
+      console.log(data.data.Media.endDate);
+      console.log(data.data.Media.status);
+      console.log(data.data.Media.popularity);
+      console.log(data.data.Media.characters);
+      console.log(`Title: ${animeTitle}`);
+      console.log(`Image URL: ${animeImage}`);
+      console.log(`Synopsis: ${animeSynopsis}`);
+      const img = document.createElement("img");
+      img.src = animeBackground;
+      back.appendChild(img);
 
-              // use the title, image, and synopsis to display the information on your website
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      // use the title, image, and synopsis to display the information on your website
     })
     .catch((error) => {
       console.error(error);
@@ -211,9 +212,11 @@ function fetchShows(search, container) {
         // ? changing from insertAdjacentHTML to create element cause  it doesn't allow for direct event listener attachment
         // ? to the newly added elements. By using document.createElement to create the anime elements as actual DOM elements
         animeElement.addEventListener("click", () => {
-          contentElements.forEach((elements)=>{
+          const FetchAnime = animeElement.innerText;
+          contentElements.forEach((elements) => {
             elements.classList.add("hidden");
           });
+          fetchAnime(FetchAnime);
         });
         container.appendChild(animeElement);
       });
@@ -231,4 +234,3 @@ search_button.addEventListener("click", () => {
   container.classList.remove("hidden");
   fetchShows(searchQuery, container);
 });
-
