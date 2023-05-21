@@ -4,5 +4,5 @@ AniQuote is an under-construction website that provides a collection of random a
 * Random Anime Quotes: The website displays random anime quotes along with the character name, title, and an image.
 * Search Feature: Users can search for anime titles and retrieve additional information such as summaries, popularity, ratings, studios, and more.
 ### PROTOTYPE
-21 May,2021- Prototype 1 
-21 May,2021- Prototype 2
+* 21 May,2021- Prototype 1 
+* 21 May,2021- Prototype 2
