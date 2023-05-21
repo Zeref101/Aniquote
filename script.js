@@ -186,8 +186,7 @@ function fetchAnime(animeTitle, container5) {
       span1.classList.add("other-info-heading");
       const span1_2 = document.createElement("span");
       span1.innerHTML = "Release Date";
-      if(data.data.Media.startDate)
-      {
+      if (data.data.Media.startDate) {
         const monthName = new Date(
           Date.UTC(2000, data.data.Media.startDate.month - 1, 1)
         ).toLocaleString("default", { month: "long" });
@@ -236,6 +235,37 @@ function fetchAnime(animeTitle, container5) {
       popularity.appendChild(span4);
       popularity.appendChild(span4_2);
 
+      // ! CHARACTERS
+      const cast = document.createElement("div");
+      const span5 = document.createElement("span");
+      const span5_2 = document.createElement("span");
+      cast.classList.add("cast");
+      span5_2.classList.add("cast2")
+      span5.innerHTML = "Cast";
+      const characters = data.data.Media.characters.edges;
+      if (characters.length > 0) {
+        characters.forEach((character) => {
+          const characterName = character.node.name.full;
+          // const role = character.role;
+          const characterImage = character.node.image.large;
+          const characterDiv = document.createElement("div");
+          characterDiv.classList.add("characterDiv");
+          const characterImg = document.createElement("img");
+          characterImg.classList.add("characterImg");
+          const characterSpan = document.createElement("span");
+          characterSpan.classList.add("characterSpan");
+          characterImg.src = characterImage;
+          characterSpan.innerHTML = `${characterName}`;
+          characterDiv.appendChild(characterImg);
+          characterDiv.appendChild(characterSpan);
+          span5_2.appendChild(characterDiv);
+        });
+      } else {
+        span5_2.innerHTML = "Unknown";
+      }
+      cast.appendChild(span5);
+      cast.appendChild(span5_2);
+
       // * ADDING ALL THE OTHER INFOS INTO otherInfoMain
       otherInfoMain.appendChild(sDate);
       otherInfoMain.appendChild(eDate);
@@ -243,19 +273,7 @@ function fetchAnime(animeTitle, container5) {
       otherInfoMain.appendChild(popularity);
 
       container5.appendChild(otherInfoMain);
-
-      // console.log(data.data.Media.endDate);
-      // console.log(data.data.Media.status);
-      // console.log(data.data.Media.popularity);
-      // console.log(data.data.Media.characters);
-      // console.log(`Title: ${animeTitle}`);
-      // console.log(`Image URL: ${animeImage}`);
-      // console.log(`Synopsis: ${animeSynopsis}`);
-      // const img = document.createElement("img");
-      // img.src = animeBackground;
-      // back.appendChild(img);
-
-      // use the title, image, and synopsis to display the information on your website
+      container5.appendChild(cast);
     })
     .catch((error) => {
       console.error(error);
