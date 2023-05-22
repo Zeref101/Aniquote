@@ -35,14 +35,16 @@
     </div>
     <div class="search-container">
       <form onsubmit="return false;"></form>
-      <input
-        type="text"
-        class="search-input"
-        placeholder="Search the anime by title name or genres"
-      >
-      <a href="#container-4" class="search-a">
-        <button class="search-output">Search</button>
-      </a>
+      <div class="input-search-box">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search the anime by title name or genres"
+        />
+        <a href="#container-4" class="search-a">
+          <button class="search-output">Search</button>
+        </a>
+      </div>
     </div>
     <div class="container-3" id="third">
       <div class="random-first">
@@ -50,19 +52,21 @@
       </div>
     </div>
     <div class="after-search hidden">
-        <div class="after-search-button-content">
-            <button class="after-search-btn">Random Search</button>
+      <div class="after-search-button-content">
+        <button class="after-search-btn">Random Search</button>
+      </div>
+      <div class="after-search-content">
+        <div class="after-search-anime-name">
+          <div class="anime-name"></div>
         </div>
-        <div class="after-search-content">
-            <div class="left-content">
-                <div class="anime-name"></div>
-                <div class="quote"></div>
-            </div>
-            <div class="right-content">
-                <div class="parent-anime-pic"></div>
-                <div class="char-name"></div>
-            </div>
+        <div class="after-search-quote-image-name">
+          <div class="after-search-quote-image-name-content">
+            <div class="parent-anime-pic"></div>
+            <div class="quote"></div>
+            <div class="char-name"></div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="container-4 hidden" id="container-4">
       <div class="container-4-subheader">
@@ -81,9 +85,8 @@
       <!-- <div class="container-other-info"></div> -->
       <!--   -->
     </div>
-    
 
-      <!-- <div class="content">
+    <!-- <div class="content">
             <h2>RANDOM</h2>
             <h2>RANDOM</h2>
         </div> -->

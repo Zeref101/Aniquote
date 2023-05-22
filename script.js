@@ -1,6 +1,5 @@
 const container = document.querySelector(".container-4");
 const text = document.querySelector(".quote");
-const back = document.querySelector(".back");
 const search_input = document.querySelector(".search-input");
 const search_button = document.querySelector(".search-output");
 const first = document.querySelector(".container");
@@ -69,7 +68,7 @@ function fetchAnimeQuoteAndCharacter() {
           img.classList.add("anime-pic");
           const newElement = `<img src=${characterImage} class = "anime-pic">`;
           animePic.insertAdjacentHTML("beforeend", newElement);
-          charName.textContent = characterName;
+          charName.textContent = "-"+characterName;
         })
         .catch((error) => {
           console.error(error);
