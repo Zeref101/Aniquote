@@ -6,3 +6,4 @@ AniQuote is an under-construction website that provides a collection of random a
 ### PROTOTYPE
 * 21 May,2023- Prototype 1 
 * 21 May,2023- Prototype 2
+* 22 May,2023- Prototype 3
