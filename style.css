@@ -228,21 +228,35 @@ nav ul li {
   height: 100%;
 }
 .after-search-anime-name {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 80%;
   height: 10vh;
   padding: 75px;
 }
 .anime-name {
+  
   color: #fff;
   font-size: 4rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff,
-    0 0 80px #00b3ff, 0 0 120px #00b3ff;
+  letter-spacing: 5px;
+
 }
+.anime-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: bold;
+  filter: drop-shadow(0 0 20px #fff);
+  
+}
+
+
 .after-search-quote-image-name-content {
   display: grid;
   grid-template-columns: 1fr 2fr;
