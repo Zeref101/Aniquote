@@ -112,6 +112,7 @@ function fetchAnime(animeTitle, container5) {
                       status
                       popularity
                       episodes
+                      genres
                       duration
                       characters {
                         edges {
@@ -235,6 +236,17 @@ function fetchAnime(animeTitle, container5) {
       popularity.appendChild(span4);
       popularity.appendChild(span4_2);
 
+      // ! GENRES
+      const genre = document.createElement("div");
+      const span6= document.createElement("span");
+      const span6_2 = document.createElement("span");
+      span6.classList.add("other-info-heading");
+      span6.innerHTML = "Genres";
+      span6_2.innerHTML = data.data.Media.genres.join(", ");
+      genre.appendChild(span6);
+      genre.appendChild(span6_2);
+
+
       // ! CHARACTERS
       const cast = document.createElement("div");
       const span5 = document.createElement("span");
@@ -271,7 +283,7 @@ function fetchAnime(animeTitle, container5) {
       otherInfoMain.appendChild(eDate);
       otherInfoMain.appendChild(status);
       otherInfoMain.appendChild(popularity);
-
+      otherInfoMain.appendChild(genre);
       container5.appendChild(otherInfoMain);
       container5.appendChild(cast);
     })
