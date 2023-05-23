@@ -507,10 +507,10 @@ nav ul li {
   }
   .search-input {
     width: 80%;
-    height: auto;
+    height: 5%;
   }
   .search-output {
-    height: 5.1%;
+    height: 5%;
     left: 82%;
   }
   .search-input::placeholder {
