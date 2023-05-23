@@ -57,23 +57,29 @@ h1::before {
     width: 100%;
   }
 }
-nav {
-  width: 93%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+
+.fa-brands {
+  font-size: 35px;
 }
-nav ul li {
+.social-media {
+  margin-top: 30px;
+}
+
+.social-media a {
+  text-decoration: none;
+  margin-right: 15px;
   display: inline-block;
-  align-items: center;
-  margin-right: 50px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border: 2px;
-  border-color: #e5680e;
-  margin: 20px;
+  color: #ababab;
+  transition: transform 0.5s;
 }
+
+.social-media a:hover {
+  color: #fff;
+  filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+  transform: translateY(-5px);
+}
+
+
 .container-2 {
   width: 100%;
   height: 90vh;
@@ -103,8 +109,8 @@ nav ul li {
   transform: translate(-50%, -50%);
   z-index: 1;
   text-decoration: none;
-  width: 600px;
-  height: 3.5rem;
+  width: 35%;
+  height: 6%;
   background: rgba(255, 255, 255, 0.5);
   border: none;
   outline: none;
@@ -120,8 +126,8 @@ nav ul li {
   z-index: 1;
   background-color: #e5680e;
   border-radius: 40px;
-  height: 3.5rem;
-  width: 100px;
+  height: 6%;
+  width: 10%;
   border: none;
   text-decoration: none;
 }
@@ -512,12 +518,13 @@ nav ul li {
   }
   .search-input {
     width: 80%;
-    height: 5%;
+    height: 6%;
     
   }
   .search-output {
-    height: 5%;
+    height: 6%;
     left: 82%;
+    width: 26%;
   }
   .search-input::placeholder {
     content: "Search anime/genre" !important;
