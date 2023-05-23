@@ -10,6 +10,7 @@ const afterSearchBtn = document.querySelector(".after-search-btn");
 const afterSearch = document.querySelector(".after-search");
 const container3 = document.querySelector(".container-3");
 const charName = document.querySelector(".char-name");
+const container4 = document.querySelector(".container-4");
 const container4Subheader = document.querySelector(".container-4-subheader");
 const container5 = document.querySelector(".container-5");
 const contentElements = document.querySelectorAll("body > *:not(.container-5)");
@@ -68,7 +69,7 @@ function fetchAnimeQuoteAndCharacter() {
           img.classList.add("anime-pic");
           const newElement = `<img src=${characterImage} class = "anime-pic">`;
           animePic.insertAdjacentHTML("beforeend", newElement);
-          charName.textContent = "-"+characterName;
+          charName.textContent = "-" + characterName;
         })
         .catch((error) => {
           console.error(error);
@@ -240,7 +241,7 @@ function fetchAnime(animeTitle, container5) {
 
       // ! GENRES
       const genre = document.createElement("div");
-      const span6= document.createElement("span");
+      const span6 = document.createElement("span");
       const span6_2 = document.createElement("span");
       span6.classList.add("other-info-heading");
       span6.innerHTML = "Genres";
@@ -248,13 +249,12 @@ function fetchAnime(animeTitle, container5) {
       genre.appendChild(span6);
       genre.appendChild(span6_2);
 
-
       // ! CHARACTERS
       const cast = document.createElement("div");
       const span5 = document.createElement("span");
       const span5_2 = document.createElement("span");
       cast.classList.add("cast");
-      span5_2.classList.add("cast2")
+      span5_2.classList.add("cast2");
       span5.innerHTML = "Cast";
       const characters = data.data.Media.characters.edges;
       if (characters.length > 0) {
@@ -282,6 +282,27 @@ function fetchAnime(animeTitle, container5) {
       }
       cast.appendChild(span5);
       cast.appendChild(span5_2);
+      // !==========================================================
+      // ? RESET BUTTON
+      const resetButton = document.createElement("button");
+      resetButton.classList.add("btn");
+      resetButton.classList.add("button-js");
+      const resetButtonParent = document.createElement("div");
+      resetButton.innerHTML = "Home";
+      resetButtonParent.style.width = "2.35%";
+      resetButtonParent.style.paddingBottom = "20px";
+      resetButtonParent.appendChild(resetButton);
+      container5.appendChild(resetButtonParent);
+      resetButton.addEventListener("click", () => {
+        container5.innerHTML = "";
+        contentElements.forEach((elements) => {
+          elements.classList.remove("hidden");
+        });
+        container5.classList.add("hidden");
+        container4.classList.add("hidden");
+        afterSearch.classList.add("hidden");
+      });
+      // !==========================================================
 
       // * ADDING ALL THE OTHER INFOS INTO otherInfoMain
       otherInfoMain.appendChild(sDate);
@@ -292,7 +313,7 @@ function fetchAnime(animeTitle, container5) {
       container5.appendChild(otherInfoMain);
       const tempContent = document.createElement("div");
       tempContent.classList.add("space-between-two-containers");
-      container5.appendChild(tempContent);  
+      container5.appendChild(tempContent);
       container5.appendChild(cast);
     })
     .catch((error) => {

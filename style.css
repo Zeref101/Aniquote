@@ -194,8 +194,14 @@ nav ul li {
   border: none;
   text-decoration: none;
   letter-spacing: 2px;
-  filter: drop-shadow(0, 0, 20px, #3af5fb);
   cursor: pointer;
+  transition: transform 0.5s;
+  transition: filter 0.5s;
+}
+.btn:hover
+{
+  filter: drop-shadow(0 0 20px #fff);
+  transform: translateY(-5px);
 }
 .hidden {
   display: none !important;
@@ -466,6 +472,20 @@ nav ul li {
   flex-direction: column;
   color: #3af5fb;
 }
+.button-js
+{
+  color: #fff;
+  width: 150%;
+  z-index: 1;
+  border-radius: 50%;
+  transition: transform 0.5s;
+  
+}
+.button-js:hover
+{
+  filter: drop-shadow(0 0 20px #fff);
+  transform: translateY(-5px);
+}
 @media only screen and (max-width: 600px) {
   body {
     display: flex;
@@ -698,5 +718,9 @@ nav ul li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  .button-js
+  {
+    display: none;
   }
 }
