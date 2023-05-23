@@ -175,7 +175,10 @@ function fetchAnime(animeTitle, container5) {
       infoContent.appendChild(summary);
 
       // * ADDING infoContent TO CONTAINER
+      const tempContent2 = document.createElement("div");
+      tempContent2.classList.add("space-between-two-containers");
       container5.appendChild(infoContent);
+      container5.appendChild(tempContent2);
 
       // !ADDING OTHER INFORMATIONS
       const otherInfoMain = document.createElement("div");
@@ -268,7 +271,10 @@ function fetchAnime(animeTitle, container5) {
           characterImg.src = characterImage;
           characterSpan.innerHTML = `${characterName}`;
           characterDiv.appendChild(characterImg);
-          characterDiv.appendChild(characterSpan);
+          const charSpanName = document.createElement("div");
+          charSpanName.classList.add("characters-cast");
+          charSpanName.appendChild(characterSpan);
+          characterDiv.appendChild(charSpanName);
           span5_2.appendChild(characterDiv);
         });
       } else {
@@ -284,6 +290,9 @@ function fetchAnime(animeTitle, container5) {
       otherInfoMain.appendChild(popularity);
       otherInfoMain.appendChild(genre);
       container5.appendChild(otherInfoMain);
+      const tempContent = document.createElement("div");
+      tempContent.classList.add("space-between-two-containers");
+      container5.appendChild(tempContent);  
       container5.appendChild(cast);
     })
     .catch((error) => {
