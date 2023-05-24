@@ -15,6 +15,7 @@ const container4Subheader = document.querySelector(".container-4-subheader");
 const container5 = document.querySelector(".container-5");
 const contentElements = document.querySelectorAll("body > *:not(.container-5)");
 const animeElements = container4Subheader.querySelectorAll(".anime");
+const footer = document.querySelector(".contain");
 
 // ! FETCHING ANIME QUOTE AND CHARACTER NAME
 //* ------------------------------------------------------------------------------------
@@ -178,7 +179,13 @@ function fetchAnime(animeTitle, container5) {
       // * ADDING infoContent TO CONTAINER
       const tempContent2 = document.createElement("div");
       tempContent2.classList.add("space-between-two-containers");
-      container5.appendChild(infoContent);
+      const header = document.createElement("div");
+      header.classList.add("header");
+      const sense = document.createElement("div");
+      sense.classList.add("sense");
+      header.appendChild(sense);
+      header.appendChild(infoContent);
+      container5.appendChild(header);
       container5.appendChild(tempContent2);
 
       // !ADDING OTHER INFORMATIONS
@@ -284,24 +291,24 @@ function fetchAnime(animeTitle, container5) {
       cast.appendChild(span5_2);
       // !==========================================================
       // ? RESET BUTTON
-      const resetButton = document.createElement("button");
-      resetButton.classList.add("btn");
-      resetButton.classList.add("button-js");
-      const resetButtonParent = document.createElement("div");
-      resetButton.innerHTML = "Home";
-      resetButtonParent.style.width = "2.35%";
-      resetButtonParent.style.paddingBottom = "20px";
-      resetButtonParent.appendChild(resetButton);
-      container5.appendChild(resetButtonParent);
-      resetButton.addEventListener("click", () => {
-        container5.innerHTML = "";
-        contentElements.forEach((elements) => {
-          elements.classList.remove("hidden");
-        });
-        container5.classList.add("hidden");
-        container4.classList.add("hidden");
-        afterSearch.classList.add("hidden");
-      });
+      // const resetButton = document.createElement("button");
+      // resetButton.classList.add("btn");
+      // resetButton.classList.add("button-js");
+      // const resetButtonParent = document.createElement("div");
+      // resetButton.innerHTML = "Home";
+      // resetButtonParent.style.width = "2.35%";
+      // resetButtonParent.style.paddingBottom = "20px";
+      // resetButtonParent.appendChild(resetButton);
+      // container5.appendChild(resetButtonParent);
+      // resetButton.addEventListener("click", () => {
+      //   container5.innerHTML = "";
+      //   contentElements.forEach((elements) => {
+      //     elements.classList.remove("hidden");
+      //   });
+      //   container5.classList.add("hidden");
+      //   container4.classList.add("hidden");
+      //   afterSearch.classList.add("hidden");
+      // });
       // !==========================================================
 
       // * ADDING ALL THE OTHER INFOS INTO otherInfoMain

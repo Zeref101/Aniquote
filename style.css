@@ -341,7 +341,7 @@ nav ul li {
 .container-5 {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -367,18 +367,62 @@ nav ul li {
     rgba(6, 13, 34, 1)
   );
 }
+.header
+{
+  position: relative;
+}
+footer {
+  width: 100%;
+  background-color: #262626;
+  font-size: 12px;
+  height: 4vh;
+
+}
+
+footer .contain {
+  display: flex;
+  color: #aaaaaa;
+  justify-content: center;
+  align-items: center;
+}
+
+/* !==================================================================== */
+.sense
+{
+  display: none;
+  width: 100%;
+  max-width: 280px;
+  min-height: 250px;
+  height: 800px;
+  overflow: hidden;
+  position: absolute;
+  left: 0%;
+  top: 30%;
+}
 .information-image-content {
   width: 100%;
-  height: 50vh;
+  min-height: 250px;
   padding-left: 100px;
   padding-right: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: 237px auto;
+  align-items: center;  
+  margin-top: 20px;
 }
+.information-image-content
+{
+  margin-left: 100px;
+  min-width: 320px;
+
+}
+
+
+/* !====================================================================== */
 .search-size {
   position: relative;
   width: 20% !important;
+  height: fit-content;
 }
 .image-c5 {
   position: absolute;
@@ -394,6 +438,7 @@ nav ul li {
   z-index: 1;
   box-shadow: 0px 5px #2b2850b6;
 }
+/* !============================================================= */
 .search-a {
   cursor: pointer;
 }
@@ -408,7 +453,7 @@ nav ul li {
   background-color: #2b2850b6;
   border-radius: 10px;
   padding: 10px;
-  font-size: 1.1rem;
+  font-size: 15px;
   color: #fff;
 }
 .container-other-info {
@@ -423,6 +468,7 @@ nav ul li {
   align-items: center;
   background-color: #2b2850b6;
   border-radius: 10px;
+  margin-top: 40px;
 }
 .container-other-info div {
   height: 100px;
@@ -486,7 +532,7 @@ nav ul li {
   filter: drop-shadow(0 0 20px #fff);
   transform: translateY(-5px);
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
   body {
     display: flex;
     flex-direction: column;
@@ -641,6 +687,7 @@ nav ul li {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: 0;
   }
   .information-image-content div {
     display: flex;
@@ -724,3 +771,4 @@ nav ul li {
     display: none;
   }
 }
+
