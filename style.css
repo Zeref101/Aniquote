@@ -111,7 +111,7 @@ h1::before {
   text-decoration: none;
   width: 35%;
   height: 6%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: none;
   outline: none;
   border-radius: 40px;
@@ -172,10 +172,10 @@ nav ul li {
   display: none;
 }
 .search-input:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
 }
 .search-input:focus {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
 }
 
 /* ====================================================================== */
