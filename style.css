@@ -720,6 +720,7 @@ footer .contain {
     padding: 40px;
   }
   .container-other-info {
+    
     width: 90%;
     height: auto;
     padding-left: 0px;
@@ -737,6 +738,7 @@ footer .contain {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    font-size: 13px;
   }
   /* ================================================= */
   .cast2
