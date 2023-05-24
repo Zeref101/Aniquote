@@ -80,11 +80,11 @@ function fetchAnimeQuoteAndCharacter() {
 
           // ? APPENDING LIKE THIS TO MAKE THE CONTENT SHOW APPROXIMATELY AT SAME TIME
           animePic.appendChild(img);
-          text.textContent = "";
+          text.textContent = "";          //* TO REMOVE THE PREVIOUS QUOTE CONTENT
           text.appendChild(quoteElement);
-          animeNAME.textContent = "";
+          animeNAME.textContent = "";     //* TO REMOVE THE PREVIOUS ANIME_NAME CONTENT
           animeNAME.appendChild(animeTitleElement);
-          charName.textContent = "";
+          charName.textContent = "";      //* TO REMOVE THE PREVIOUS CHARACTER NAME CONTENT
           charName.appendChild(characterNameElement);
         })
         .catch((error) => {
