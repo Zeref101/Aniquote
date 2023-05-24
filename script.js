@@ -29,15 +29,13 @@ function fetchAnimeQuoteAndCharacter() {
     .then((response) => response.json())
     .then((character) => {
       const quote = `${character.quote}`;
-      text.textContent = quote;
       const characterName = character.character;
       const animeTitle = character.anime;
-      animeNAME.textContent = animeTitle;
+
       animePic.innerHTML = "";
       charName.innerHTML = "";
 
-      // ! Fetching character image and appending the child to container
-      //* ------------------------------------------------------------------------------------
+      // Fetching character image and appending the child to container
       fetch(`https://graphql.anilist.co`, {
         method: "POST",
         headers: {
@@ -63,14 +61,31 @@ function fetchAnimeQuoteAndCharacter() {
         .then((data) => {
           const characterImage = data.data.Character.image.large;
 
-          // ! character image URL to display the image
-
+          // !image element and its attributes
           const img = document.createElement("img");
           img.src = characterImage;
           img.classList.add("anime-pic");
-          const newElement = `<img src=${characterImage} class = "anime-pic">`;
-          animePic.insertAdjacentHTML("beforeend", newElement);
-          charName.textContent = "-" + characterName;
+
+          //! elements for quote, anime title, and character name
+          const quoteElement = document.createElement("div");
+          quoteElement.textContent = quote;
+
+
+          const animeTitleElement = document.createElement("div");
+          animeTitleElement.textContent = animeTitle;
+  
+
+          const characterNameElement = document.createElement("div");
+          characterNameElement.textContent = "-" + characterName;
+
+          // ? APPENDING LIKE THIS TO MAKE THE CONTENT SHOW APPROXIMATELY AT SAME TIME
+          animePic.appendChild(img);
+          text.textContent = "";
+          text.appendChild(quoteElement);
+          animeNAME.textContent = "";
+          animeNAME.appendChild(animeTitleElement);
+          charName.textContent = "";
+          charName.appendChild(characterNameElement);
         })
         .catch((error) => {
           console.error(error);
@@ -80,6 +95,7 @@ function fetchAnimeQuoteAndCharacter() {
       console.error(error);
     });
 }
+
 function fetchAnime(animeTitle, container5) {
   // ! Fetching anime synopsis and anime background for the more information on this anime feature
   const fetchAnime = fetch(`https://graphql.anilist.co`, {
